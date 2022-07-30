@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>user-service</module>
+    </modules>
+
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.5.12</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.vmanav123</groupId>
+    <artifactId>version-control-system</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <extension.reactor.version>4.5.1</extension.reactor.version>
+        <guava.version>31.1-jre</guava.version>
+        <lombok.version>1.18.22</lombok.version>
+        <axon.version>4.5.9</axon.version>
+        <reactor.version>3.4.17</reactor.version>
+        <axon-bom.version>4.5.12</axon-bom.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.projectreactor/reactor-core -->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.axonframework</groupId>
+            <artifactId>axon-spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.axonframework</groupId>
+            <artifactId>axon-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.axonframework</groupId>
+            <artifactId>axon-test</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.axonframework.extensions.reactor/axon-reactor-spring-boot-starter -->
+        <dependency>
+            <groupId>org.axonframework.extensions.reactor</groupId>
+            <artifactId>axon-reactor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.axonframework.extensions.reactor</groupId>
+            <artifactId>axon-reactor-spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.axonframework.extensions.reactor</groupId>
+            <artifactId>axon-reactor-spring-boot-starter</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-bom</artifactId>
+                <version>${axon-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${parent.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
